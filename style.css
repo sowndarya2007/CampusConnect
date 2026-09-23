@@ -1126,13 +1126,13 @@ overflow: hidden;
 }
 
 .club-card h3 {
-    margin-bottom: 7px;
+    margin-bottom: 20px;
 }
 
 .club-card p {
     color: #777c94;
     font-size: 11px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .club-card > span {
@@ -1144,14 +1144,17 @@ overflow: hidden;
 /* =========================================
    RESOURCES
 ========================================= */
-
+#resources {
+    padding-bottom:2px;
+}
+    
 .resource-grid {
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 18px;
+    gap: 50px;
 }
 
 .resource-card {
