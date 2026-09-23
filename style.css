@@ -857,7 +857,8 @@ a {
 }
 
 .event-card {
-    overflow: hidden;
+    
+position: relative;
 
     border-radius: 20px;
 
@@ -867,79 +868,139 @@ a {
 
     backdrop-filter: blur(20px);
 
-    transition: .35s;
+   
 }
 
 .event-card:hover {
-    transform: translateY(-8px);
-
-    border-color: rgba(168,85,247,.4);
+    transform: none !important;
 
     box-shadow:
-        0 20px 50px rgba(0,0,0,.25);
+        0 0 25px rgba(150, 80, 255, 0.25),
+        0 0 50px rgba(0, 200, 255, 0.12) !important;
+
+    border-color: rgba(190, 130, 255, 0.55) !important;
 }
 
 .event-image {
-    height: 180px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px 13px 0 0;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease,
+                filter 0.6s ease;
+}
+
+
+/* Dark overlay */
+
+.event-image::after {
+    content: "";
 
     position: relative;
+overflow: hidden;
+    inset: 0;
 
-    display: flex;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(3, 8, 30, 0.05),
+            rgba(3, 8, 30, 0.55)
+        );
 
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 55px;
+    pointer-events: none;
 }
 
-.event-image span {
+
+/* Hover zoom */
+
+.event-card:hover .event-image img {
+    transform: scale(1.08);
+
+    filter:
+        brightness(1.12)
+        saturate(1.2);
+}
+
+
+/* DATE - IMAGE TOP LEFT */
+
+.event-image .event-date {
+
     position: absolute;
 
-    top: 15px;
-    left: 15px;
+    top: 12px;
 
-    padding: 7px 10px;
+    left: 12px;
 
-    border-radius: 8px;
+    z-index: 20;
+    display:flex;
+    flex-direction: column;
 
-    background: rgba(0,0,0,.25);
+    min-width: 48px;
 
-    font-size: 9px;
+    padding: 6px 9px;
 
-    letter-spacing: 1px;
+    border-radius: 9px;
+
+    background: rgba(10, 18, 48, 0.85);
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 8px;
+
+    line-height: 1.1;
+
 }
 
-.purple-gradient {
-    background: linear-gradient(
-        135deg,
-        #4c1d95,
-        #7c3aed,
-        #c026d3
-    );
+.event-image .date span {
+
+    display: block;
+
+    font-size: 8px;
+
+    color: #d9caff;
+
+    font-weight: 600;
+
 }
 
-.pink-gradient {
-    background: linear-gradient(
-        135deg,
-        #9d174d,
-        #ec4899,
-        #f97316
-    );
+.event-image .date b {
+
+    display: block;
+
+    font-size: 17px;
+
+    margin-top: 2px;
+
+    color: white;
+
 }
 
-.blue-gradient {
-    background: linear-gradient(
-        135deg,
-        #1e3a8a,
-        #2563eb,
-        #06b6d4
-    );
-}
+
+    
+
+
 
 .card-content {
     padding: 20px;
 }
+
 
 .tag {
     display: inline-block;
