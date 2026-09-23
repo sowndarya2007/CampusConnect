@@ -362,8 +362,9 @@ a {
 
     width: 100%;
     max-width: 570px;
-    height: 275px;
-
+    height: 270px;
+margin-top: 10px;
+margin-bottom: 20px;
     object-fit: cover;
 
     border-radius: 22px;
@@ -458,6 +459,8 @@ a {
 }
 
 
+
+
 @keyframes glowPulse {
 
     from {
@@ -469,6 +472,7 @@ a {
         opacity: 1;
         transform: scale(1.1);
     }
+    
 
 }
 
@@ -540,6 +544,8 @@ a {
     );
 
     -webkit-background-clip: text;
+
+    background-clip: text;
 
     color: transparent;
 }
@@ -1342,6 +1348,7 @@ overflow: hidden;
         repeat(2, 1fr);
 
     gap: 18px;
+    
 }
 
 .lost-card {
@@ -1358,6 +1365,8 @@ overflow: hidden;
     border: 1px solid rgba(255,255,255,.08);
 
     border-radius: 18px;
+    margin-bottom: auto;
+    margin-top: auto;
 }
 
 .lost-icon {
