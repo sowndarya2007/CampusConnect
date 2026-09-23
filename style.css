@@ -257,30 +257,188 @@ a {
     font-size: 9px;
 }
 
-.toggle {
-    margin-left: auto;
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    width: 35px;
-    height: 19px;
+    padding: 14px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+
+    transition: .3s ease;
+}
+
+.theme-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-info > i {
+    font-size: 18px;
+    color: #c084fc;
+}
+
+.theme-info strong {
+    display: block;
+    color: white;
+    font-size: 11px;
+}
+
+.theme-info small {
+    display: block;
+    color: #777c94;
+    font-size: 8px;
+    margin-top: 3px;
+}
+
+
+/* Hide checkbox */
+
+#darkToggle {
+    display: none;
+}
+
+
+/* Toggle */
+
+.toggle-switch {
+    width: 48px;
+    height: 26px;
+
+    padding: 3px;
 
     border-radius: 20px;
 
-    background: #7c3aed;
+    background: #777c94;
 
-    padding: 3px;
+    cursor: pointer;
+
+    transition: .4s ease;
 }
 
-.toggle div {
-    width: 13px;
-    height: 13px;
+.toggle-switch span {
+    display: block;
 
-    background: white;
+    width: 20px;
+    height: 20px;
 
     border-radius: 50%;
 
-    margin-left: auto;
+    background: white;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+
+    transition: .4s ease;
 }
 
+
+/* ON */
+
+#darkToggle:checked + .toggle-switch {
+    background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #ec4899
+    );
+
+    box-shadow:
+        0 0 12px rgba(168,85,247,.45);
+}
+
+#darkToggle:checked + .toggle-switch span {
+    transform: translateX(22px);
+}
+
+    /* =================================
+   LIGHT MODE
+================================= */
+
+body:has(#darkToggle:not(:checked)) {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(168,85,247,.12),
+            transparent 35%
+        ),
+        #f5f7ff;
+
+    color: #202236;
+}
+
+
+/* Sidebar */
+
+body:has(#darkToggle:not(:checked)) .sidebar {
+    background: rgba(255,255,255,.78);
+    border-color: rgba(80,70,130,.12);
+    box-shadow: 5px 0 30px rgba(50,40,100,.08);
+}
+
+
+/* Sidebar text */
+
+body:has(#darkToggle:not(:checked)) .sidebar a {
+    color: #555a70;
+}
+
+body:has(#darkToggle:not(:checked)) .sidebar a:hover {
+    color: #6d28d9;
+}
+
+
+/* Main text */
+
+body:has(#darkToggle:not(:checked)) h1,
+body:has(#darkToggle:not(:checked)) h2,
+body:has(#darkToggle:not(:checked)) h3 {
+    color: #202236;
+}
+
+
+/* Cards */
+
+body:has(#darkToggle:not(:checked)) .event-card,
+body:has(#darkToggle:not(:checked)) .club-card,
+body:has(#darkToggle:not(:checked)) .resource-card,
+body:has(#darkToggle:not(:checked)) .lost-card,
+body:has(#darkToggle:not(:checked)) .announcement-box,
+body:has(#darkToggle:not(:checked)) .profile-card {
+    background: rgba(255,255,255,.72);
+    border-color: rgba(90,70,150,.12);
+
+    box-shadow:
+        0 10px 30px rgba(60,40,120,.08);
+}
+
+
+/* Paragraph */
+
+body:has(#darkToggle:not(:checked)) p {
+    color: #656a80;
+}
+
+
+/* Theme box */
+
+body:has(#darkToggle:not(:checked)) .theme-toggle {
+    background: rgba(255,255,255,.75);
+    border-color: rgba(90,70,150,.12);
+}
+
+body:has(#darkToggle:not(:checked)) .theme-info strong {
+    color: #25263a;
+}
+
+
+/* Moon → Sun */
+
+body:has(#darkToggle:not(:checked)) .theme-info > i {
+    color: #f59e0b;
+}
 
 .user-mini {
     display: flex;
